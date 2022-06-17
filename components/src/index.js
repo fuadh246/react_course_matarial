@@ -38,7 +38,7 @@ const Main2 = () => (
     <Techlist />
   </div >
 )
-const Button = () => <button className='btn'>action</button>
+// const Button = () => <button className='btn'>action</button>
 
 const hexaColor = () => {
   let str = '0123456789abcdef'
@@ -53,26 +53,33 @@ const hexaColor = () => {
 
 const hexaColorStyle = {
   padding: '10px 20px',
-  color: "red",
-  background: `${hexaColor()}`,
+  margin: "5px",
   border: 'none',
   borderRadius: 5,
 
 }
 
-const HexaColor = () => <div style={hexaColorStyle}>{hexaColor()}</div>
+
+const HexaColor = () => {
+  const Color = hexaColor();
+  return < div style={{ backgroundColor: `${Color}`, ...hexaColorStyle }} > {Color}</div >
+}
 
 
 const Main3 = () => (
   <div className='main'>
     <HexaColor />
     <HexaColor />
+    <HexaColor />
+    <HexaColor />
+    <HexaColor />
+    <HexaColor />
   </div>
 )
 
 
-const app = (
-  <div>
+const App = () => (
+  <div className='app'>
     <Main />
     <Main2 />
     <Main3 />
@@ -80,4 +87,4 @@ const app = (
 )
 
 const rootElement = document.getElementById('root')
-ReactDOM.render(app, rootElement)
+ReactDOM.render(<App />, rootElement)
