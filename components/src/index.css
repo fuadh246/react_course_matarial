@@ -1,13 +1,57 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.main {
+  background-color: rgb(150, 219, 219);
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input {
+  background-color: aliceblue;
+  width: 150px;
+  height: 20px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn {
+  background-color: aliceblue;
+  width: 250px;
+  height: 30px;
+  padding: 5px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: rgb(203, 99, 99);
+  color: aliceblue;
+  border: none;
+}
+
+#main2 {
+  text-align: left;
+  background-color: rgb(190, 217, 240);
+}
+
+.logo {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.skills {
+  display: inline-block;
+  background-color: rgb(1, 146, 114);
+  margin: 5px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  color: aliceblue;
 }
