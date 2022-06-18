@@ -11,3 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container{
+  margin: 10px;
+}
+.country{
+  width: 150px;
+  display: inline-block;
+  margin: 10px;
+  background-color: aqua;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+.ExercisesLevel3{
+background-color: aqua;
+padding: 15px;
+border-radius: 5px;
+}
+.table{
+  width: 100%;
+  border-radius: 5px;
+}
+.row{
+background-color: rgb(27, 109, 81);
+color: aliceblue;
+}
+.col0{
+  text-align: left;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: large;
+}
+.col1{
+  text-align: right;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: large;
+}
