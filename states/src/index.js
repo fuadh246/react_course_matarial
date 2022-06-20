@@ -1,73 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { countries_data } from './countries_data.js';
 
 
+console.log(countries_data[0])
 
-const countries_data = [
-  {
-    "name": "Afghanistan",
-    "capital": "Kabul",
-    "languages": [
-      "Pashto",
-      "Uzbek",
-      "Turkmen"
-    ],
-    "population": 40218234,
-    "flag": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg",
-    "region": "Asia",
-    "area": 652230
-  },
-  {
-    "name": "Åland Islands",
-    "capital": "Mariehamn",
-    "languages": [
-      "Swedish"
-    ],
-    "population": 28875,
-    "flag": "https://flagcdn.com/ax.svg",
-    "region": "Europe",
-    "area": 1580
-  },
-  {
-    "name": "Albania",
-    "capital": "Tirana",
-    "languages": [
-      "Albanian"
-    ],
-    "population": 2837743,
-    "flag": "https://flagcdn.com/al.svg",
-    "region": "Europe",
-    "area": 28748
-  },
-  {
-    "name": "Algeria",
-    "capital": "Algiers",
-    "languages": [
-      "Arabic"
-    ],
-    "population": 43851043,
-    "flag": "https://flagcdn.com/dz.svg",
-    "region": "Africa",
-    "area": 2381741
-  }]
-
-
-
-
-console.log(countries_data[0]['name'])
-
+for (const country in countries_data) {
+  if (countries_data[country].name === 'Bangladesh') {
+    console.log(country)
+  }
+}
 
 class App extends React.Component {
   state = {
     count: 0,
     image: 'https://www.smithsstationah.com/imagebank/eVetSites/Feline/01.jpg',
-    countryName: countries_data[0]['name'],
-    countryCapital: countries_data[0]['capital'],
-    CounntryLang: countries_data[0]['languages'],
-    CountryPopulation: countries_data[0]['population'],
-    CountryFlag: countries_data[0]['flag']
+    country: countries_data[18],
   }
+
   addOne = () => this.setState({ count: this.state.count + 1 })
   subtractOne = () => this.setState({ count: this.state.count - 1 })
   changeImage = () => {
@@ -80,13 +31,10 @@ class App extends React.Component {
   }
 
   changeCountry = () => {
-    let randomIndex = Math.floor(Math.random() * 3)
-    let countryName = countries_data[randomIndex]['name']
-    let countryCapital = countries_data[randomIndex]['capital']
-    let CounntryLang = countries_data[randomIndex]['languages']
-    let CountryPopulation = countries_data[randomIndex]['population']
-    let CountryFlag = countries_data[randomIndex]['flag']
-    let country = this.state.image === catURL ? dogURL : catURL
+    let randomIndex = Math.floor(Math.random() * countries_data.length - 1)
+    // let country = countries_data[0]
+    let randomCountry = countries_data[randomIndex]
+    this.setState({ country: randomCountry })
   }
   render() {
     const count = this.state.count
@@ -105,10 +53,22 @@ class App extends React.Component {
         <button onClick={this.changeImage} class='btn btn-add'>
           Change
         </button>
-        <div>
+        <div className='wholecard'>
+          <div className='countrycard'>
 
+            <img className='image' src={this.state.country['flag']} alt='country flag' />
+            <h3>{this.state.country['name']}</h3>
+            <div className='info'>
+              <p>Capital: {this.state.country['capital']}</p>
+              <p>Languages: {this.state.country['languages']}</p>
+              <p>Population:  {this.state.country['population']}</p>
+              <p>Region:  {this.state.country['region']}</p>
+            </div>
+            <button onClick={this.changeCountry} class='btn btn-add'>
+              Change country
+            </button>
+          </div>
         </div>
-
       </div>
     )
   }
