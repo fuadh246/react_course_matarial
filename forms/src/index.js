@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
 let Students = []
 
 const ReadStudent = ({ Student }) => {
@@ -16,11 +17,12 @@ const ReadStudent = ({ Student }) => {
 }
 
 const ReadStudents = ({ Students }) => {
-  const StudentList = Students.map((Student) => <ReadStudent Student={Student} />)
+  const StudentList = Students.map((Student) => <ReadStudent key={Student.firstName} Student={Student} />)
   return (StudentList)
 }
 
-const Clearlist = (Students) => {
+
+const ClearStudent = ({ Students }) => {
   Students = []
 }
 
@@ -47,15 +49,22 @@ class App extends Component {
      the is the place where we connect backend api 
      to send the data to the database
      */
-
-    Students.push(this.state)
-    console.log(Students)
-    this.setState({
-      firstName: '',
-      lastName: '',
-      country: '',
-      title: '',
-    })
+    if (this.state.firstName !== ''
+      && this.state.lastName !== ''
+      && this.state.country !== ''
+      && this.state.title !== '') {
+      Students.push(this.state)
+      this.setState({
+        firstName: '',
+        lastName: '',
+        country: '',
+        title: '',
+      })
+      console.log(Students)
+    }
+    else {
+      alert('please fill out all the form')
+    }
   }
   render() {
     const { firstName, lastName, title, country } = this.state
@@ -101,6 +110,7 @@ class App extends Component {
           </div>
           <button class='btn btn-success'>Submit</button>
         </form>
+
         <ReadStudents Students={Students} />
       </div>
     )
