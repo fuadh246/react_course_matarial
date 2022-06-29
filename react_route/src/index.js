@@ -169,7 +169,7 @@ const Challenges = (props) => {
             <h3>{`/challenges/${slug}`}</h3>
           </li>
         ))}
-        <li><NavLink to={`/challenges/py`}>Py</NavLink></li>
+        {/* <li><NavLink to={`/challenges/py`}>Py</NavLink></li> */}
       </ul>
       <Routes>
         <Route
@@ -177,7 +177,11 @@ const Challenges = (props) => {
           path={'/challenges'}
           element={() => <h1>Choose any of the challenges</h1>}
         />
-        <Route exact path='challenges/py' element={<Challenge challenge={challenges[0]} />} />
+        <Route
+          path={path}
+          element={(props) => <Challenge challenge={challenge} />}
+        />
+        {/* <Route exact path='challenges/py' element={<Challenge challenge={challenges[0]} />} /> */}
       </Routes>
     </div>
   )
@@ -220,7 +224,7 @@ class App extends Component {
             <Route path='/contact' element={<Contact />} />
             <Route path='/challenges' element={<Challenges />} />
             <Route exact path='/' element={<Home />} />
-            <Route exact path='/challenges/py' element={<Challenge challenge={challenges[0]} />} />
+            <Route exact path='/challenges' element={<Challenge challenges={challenges} />} />
             <Route element={<NotFound />} />
           </Routes>
         </div>
